@@ -70,5 +70,6 @@ func NewHandler(handlerOpts ...HandlerOption) http.Handler {
 	staticServer := http.FileServer(statikFS)
 	sh := http.StripPrefix("/q/swagger-ui", staticServer)
 	r.PathPrefix("/q/swagger-ui").Handler(sh)
+	r.PathPrefix("/q/").Handler(r)
 	return r
 }
